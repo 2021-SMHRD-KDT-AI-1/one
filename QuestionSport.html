@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    .prev-btn {
+        margin-right: 50px;
+        border: 1px solid black;
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+        padding: 5px;
+        border-radius: 1em;
+        font-size: 35px;
+
+    }
+
+    .next-btn {
+        margin-left: 50px;
+        border: 1px solid black;
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+        padding: 5px;
+        border-radius: 1em;
+        font-size: 35px;
+    }
+
+    #btn_group button:hover {
+        color: whitesmoke;
+        background-color: grey;
+
+    }
+
+    #title {
+        font-size: 15px;
+        color: #ED9B88;
+        align-content: center;
+        text-align: centers;
+    }
+
+    #div1 {
+        text-align: center;
+
+    }
+
+    #p1 {
+        align-content: center;
+        font-size: 40px;
+        font-weight: 700;
+        background-color: transparent;
+        border-radius: 2em;
+        font-family: 궁서;
+        color: #3C5975;
+
+
+    }
+
+    #p2 {
+        align-content: center;
+        font-size: 40px;
+        font-style: normal;
+        font-family: 궁서;
+        color: black;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2em;
+        width: 800px;
+        height: 200px;
+        background-color: transparent;
+
+
+    }
+
+    .a::after {
+        width: 100%;
+        height: 100%;
+
+        content: "";
+        background: url("pro_image/cook.png");
+        background-repeat: repeat;
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    td {
+        width: 200px;
+        word-break: break-all;
+    }
+
+    body {
+        background-color: #fffcf4;
+    }
+
+    .pro {
+        text-align: center;
+    }
+
+    #Q {
+        color: #ED9B88;
+    }
+
+    #Q1 {
+        display: block;
+    }
+
+    #Q2 {
+        display: none;
+    }
+
+    #Q3 {
+        display: none;
+    }
+
+    #Q4 {
+        display: none;
+    }
+
+    #Q5 {
+        display: none;
+    }
+
+    progress {
+        background-color: #ED9B88;
+        height: 25px;
+        border-radius: 9px;
+        width: 50%;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+
+    progress::-webkit-progress-value {
+        background: #ED9B88;
+    }
+
+    #line {
+        width: 100%;
+        height: 30px;
+        background-color: #b1ddb1;
+        margin-top: 20px;
+
+    }
+</style>
+<script>
+    function jbnext() {
+        document.getElementById('jb').value = '25';
+        document.getElementById("Q1").style.display = "none";
+        document.getElementById("Q2").style.display = "block";
+    }
+    function jbprev1() {
+        document.getElementById('jb').value = '0';
+        document.getElementById("Q1").style.display = "block";
+        document.getElementById("Q2").style.display = "none";
+    }
+    function jbnext1() {
+        document.getElementById('jb').value = '50';
+        document.getElementById("Q2").style.display = "none";
+        document.getElementById("Q3").style.display = "block";
+    }
+    function jbprev2() {
+        document.getElementById('jb').value = '25';
+        document.getElementById("Q2").style.display = "block";
+        document.getElementById("Q3").style.display = "none";
+    }
+    function jbnext2() {
+        document.getElementById('jb').value = '75';
+        document.getElementById("Q3").style.display = "none";
+        document.getElementById("Q4").style.display = "block";
+    }
+    function jbprev3() {
+        document.getElementById('jb').value = '50';
+        document.getElementById("Q3").style.display = "block";
+        document.getElementById("Q4").style.display = "none";
+    }
+    function jbnext3() {
+        document.getElementById('jb').value = '100';
+        document.getElementById("Q4").style.display = "none";
+        document.getElementById("Q5").style.display = "block";
+    }
+    function jbprev4() {
+        document.getElementById('jb').value = '75';
+        document.getElementById("Q4").style.display = "block";
+        document.getElementById("Q5").style.display = "none";
+    }
+    function show_result() {
+
+    }
+
+
+</script>
+
+<body class="a">
+    <!--<form>-->
+    <fieldset style="border: 1px solid transparent">
+        <legend align="center">
+            <div id="title">
+                <h2>여기는</h2>
+                <h2>운동이예용</h2>
+            </div>
+        </legend>
+        <div id="line"></div>
+        <div class="pro">
+            <div>
+                <progress value='0' max='100' id="jb"></progress>
+            </div>
+            <div id="Q1">
+                <label>
+                    <div id="div1">
+                        <h1 id="Q">Question1</h1>
+                        <div id="div2">
+                            <span id="p1">운동 질문 1</span>
+
+                        </div><br><br><br>
+                        <table bgcolor=whitesmoke width="60%">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr border="1">
+                                <td colspan="5"><span id="p2">ㄴㄴ</sapn>
+                                </td>
+
+
+                                <td colspan="10"><input type="radio" name="exercize1"
+                                        style="width:30px;height:30px;border:1px; " value="1">
+                                    <input type="radio" name="exercize1" style="width:25px;height:25px;border:1px;"
+                                        value="2">
+                                    <input type="radio" name="exercize1" style="width:20px;height:20px;border:1px;"
+                                        value="3">
+                                    <input type="radio" name="exercize1" style="width:15px;height:15px;border:1px;"
+                                        value="4">
+                                    <input type="radio" name="exercize1" style="width:10px;height:10px;border:1px;"
+                                        value="5">
+                                    <input type="radio" name="exercize1" style="width:10px;height:10px;border:1px;"
+                                        value="6">
+                                    <input type="radio" name="exercize1" style="width:15px;height:15px;border:1px;"
+                                        value="7">
+                                    <input type="radio" name="exercize1" style="width:20px;height:20px;border:1px;"
+                                        value="8">
+                                    <input type="radio" name="exercize1" style="width:25px;height:25px;border:1px;"
+                                        value="9">
+                                    <input type="radio" name="exercize1" style="width:30px;height:30px;border:1px;"
+                                        value="10">
+                                </td>
+
+
+
+                                <td colspan="5"> <span id="p2">ㅇㅇ</span></td>
+
+                            </tr>
+                        </table><br><br>
+                        <div id="btn_group">
+
+                            <button class='next-btn' onclick="jbnext();">다음</button>
+                        </div>
+                    </div><br><br><br><br><br>
+                </label>
+            </div>
+            <div id="Q2">
+                <label>
+                    <div>
+                        <h1 id="Q">Question2</h1>
+                        <div id="div2">
+                            <span id="p1">운동질문 2</span>
+
+                        </div><br><br><br>
+                        <table bgcolor=whitesmoke width="60%">
+                            <tr height="1px">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr border="1">
+                                <td colspan="5"><span id="p2">ㄴㄴ</sapn>
+                                </td>
+
+
+                                <td colspan="10"><input type="radio" name="exercize2"
+                                        style="width:30px;height:30px;border:1px;" value="1">
+                                    <input type="radio" name="exercize2" style="width:25px;height:25px;border:1px;"
+                                        value="2">
+                                    <input type="radio" name="exercize2" style="width:20px;height:20px;border:1px;"
+                                        value="3">
+                                    <input type="radio" name="exercize2" style="width:15px;height:15px;border:1px;"
+                                        value="4">
+                                    <input type="radio" name="exercize2" style="width:10px;height:10px;border:1px;"
+                                        value="5">
+                                    <input type="radio" name="exercize2" style="width:10px;height:10px;border:1px;"
+                                        value="6">
+                                    <input type="radio" name="exercize2" style="width:15px;height:15px;border:1px;"
+                                        value="7">
+                                    <input type="radio" name="exercize2" style="width:20px;height:20px;border:1px;"
+                                        value="8">
+                                    <input type="radio" name="exercize2" style="width:25px;height:25px;border:1px;"
+                                        value="9">
+                                    <input type="radio" name="exercize2" style="width:30px;height:30px;border:1px;"
+                                        value="10">
+                                </td>
+
+
+
+                                <td colspan="5"> <span id="p2">ㅇㅇ</span></td>
+
+                            </tr>
+                        </table><br><br>
+                        <div id="btn_group">
+                            <button class='prev-btn' onclick="jbprev1()">이전</button>
+                            <button class='next-btn' onclick="jbnext1()">다음</button>
+                        </div>
+                    </div><br><br><br><br><br>
+                </label>
+            </div>
+            <div id="Q3">
+                <label>
+                    <div>
+                        <h1 id="Q">Question3</h1>
+                        <div id="div2">
+                            <span id="p1">운동질문 3</span>
+
+                        </div><br><br><br>
+                        <table bgcolor=whitesmoke width="60%">
+                            <tr height="1px">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr border="1">
+                                <td colspan="5"><span id="p2">ㄴㄴ</sapn>
+                                </td>
+
+
+                                <td colspan="10"><input type="radio" name="exercize3"
+                                        style="width:30px;height:30px;border:1px;" value="1">
+                                    <input type="radio" name="exercize3" style="width:25px;height:25px;border:1px;"
+                                        value="2">
+                                    <input type="radio" name="exercize3" style="width:20px;height:20px;border:1px;"
+                                        value="3">
+                                    <input type="radio" name="exercize3" style="width:15px;height:15px;border:1px;"
+                                        value="4">
+                                    <input type="radio" name="exercize3" style="width:10px;height:10px;border:1px;"
+                                        value="5">
+                                    <input type="radio" name="exercize3" style="width:10px;height:10px;border:1px;"
+                                        value="6">
+                                    <input type="radio" name="exercize3" style="width:15px;height:15px;border:1px;"
+                                        value="7">
+                                    <input type="radio" name="exercize3" style="width:20px;height:20px;border:1px;"
+                                        value="8">
+                                    <input type="radio" name="exercize3" style="width:25px;height:25px;border:1px;"
+                                        value="9">
+                                    <input type="radio" name="exercize3" style="width:30px;height:30px;border:1px;"
+                                        value="10">
+                                </td>
+
+
+
+                                <td colspan="5"> <span id="p2">ㅇㅇ</span></td>
+
+                            </tr>
+                        </table><br><br>
+                        <div id="btn_group">
+                            <button class='prev-btn' onclick="jbprev2()">이전</button>
+                            <button class='next-btn' onclick="jbnext2()">다음</button>
+                        </div>
+                    </div><br><br><br><br><br>
+                </label>
+            </div>
+            <div id="Q4">
+                <label>
+                    <div>
+                        <h1 id="Q">Question4</h1>
+                        <div id="div2">
+                            <span id="p1">운동질문 4</span>
+
+                        </div><br><br><br>
+                        <table bgcolor=whitesmoke width="60%">
+                            <tr height="1px">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr border="1">
+                                <td colspan="5"><span id="p2">ㄴㄴ</sapn>
+                                </td>
+
+
+                                <td colspan="10"><input type="radio" name="exercize4"
+                                        style="width:30px;height:30px;border:1px;" value="1">
+                                    <input type="radio" name="exercize4" style="width:25px;height:25px;border:1px;"
+                                        value="2">
+                                    <input type="radio" name="exercize4" style="width:20px;height:20px;border:1px;"
+                                        value="3">
+                                    <input type="radio" name="exercize4" style="width:15px;height:15px;border:1px;"
+                                        value="4">
+                                    <input type="radio" name="exercize4" style="width:10px;height:10px;border:1px;"
+                                        value="5">
+                                    <input type="radio" name="exercize4" style="width:10px;height:10px;border:1px;"
+                                        value="6">
+                                    <input type="radio" name="exercize4" style="width:15px;height:15px;border:1px;"
+                                        value="7">
+                                    <input type="radio" name="exercize4" style="width:20px;height:20px;border:1px;"
+                                        value="8">
+                                    <input type="radio" name="exercize4" style="width:25px;height:25px;border:1px;"
+                                        value="9">
+                                    <input type="radio" name="exercize4" style="width:30px;height:30px;border:1px;"
+                                        value="10">
+                                </td>
+
+
+
+                                <td colspan="5"> <span id="p2">ㅇㅇ</span></td>
+
+                            </tr>
+                        </table><br><br>
+                        <div id="btn_group">
+                            <button class='prev-btn' onclick="jbprev3()">이전</button>
+                            <button class='next-btn' onclick="jbnext3()">다음</button>
+                        </div>
+                    </div><br><br><br><br><br>
+                </label>
+            </div>
+            <div id="Q5">
+                <label>
+                    <div>
+                        <h1 id="Q">Question5</h1>
+                        <div id="div2">
+                            <span id="p1">운동질문 5</span>
+
+                        </div><br><br><br>
+                        <table bgcolor=whitesmoke width="60%">
+                            <tr height="1px">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr border="1">
+                                <td colspan="5"><span id="p2">ㄴㄴ</sapn>
+                                </td>
+
+
+                                <td colspan="10"><input type="radio" name="exercize5"
+                                        style="width:30px;height:30px;border:1px;" value="1">
+                                    <input type="radio" name=""exercize5" style="width:25px;height:25px;border:1px;"
+                                        value="2">
+                                    <input type="radio" name=""exercize5" style="width:20px;height:20px;border:1px;"
+                                        value="3">
+                                    <input type="radio" name=""exercize5" style="width:15px;height:15px;border:1px;"
+                                        value="4">
+                                    <input type="radio" name=""exercize5" style="width:10px;height:10px;border:1px;"
+                                        value="5">
+                                    <input type="radio" name=""exercize5" style="width:10px;height:10px;border:1px;"
+                                        value="6">
+                                    <input type="radio" name=""exercize5" style="width:15px;height:15px;border:1px;"
+                                        value="7">
+                                    <input type="radio" name=""exercize5" style="width:20px;height:20px;border:1px;"
+                                        value="8">
+                                    <input type="radio" name=""exercize5" style="width:25px;height:25px;border:1px;"
+                                        value="9">
+                                    <input type="radio" name=""exercize5" style="width:30px;height:30px;border:1px;"
+                                        value="10">
+                                </td>
+
+
+
+                                <td colspan="5"> <span id="p2">ㅇㅇ</span></td>
+
+                            </tr>
+                        </table><br><br>
+                        <div id="btn_group">
+                            <button class='prev-btn' onclick="jbprev4()">이전</button>
+                            <button class='next-btn' onclick="show_result()">결과보기</button>
+                        </div>
+                    </div><br><br><br><br><br>
+                </label>
+            </div>
+        </div>
+        </div>
+    </fieldset>
+    <!--</form>-->
+
+</body>
+
+</html>
