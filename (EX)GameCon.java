@@ -16,20 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/GameCon")
 public class GameCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("¼­¹öÆäÀÌÁöÈ£Ãâ");
+		System.out.println("ì„œë²„í˜ì´ì§€í˜¸ì¶œ");
 		
 		int pt = Integer.parseInt(request.getParameter("radioTxt"));
 		int num = Integer.parseInt(request.getParameter("num"));
 		String A = "Q"+num;
-		System.out.println("Á¡¼ö"+pt);
-		System.out.println("¹®Á¦"+A);
+		System.out.println("ì ìˆ˜"+pt);
+		System.out.println("ë¬¸ì œ"+A);
 		String name = request.getParameter("name");
-		System.out.println("»ç¿ëÀÚ°¡ º¸³»´Â °ª : "+ pt);
-		System.out.println("»ç¿ëÀÚ°¡ º¸³»´Â name : "+ name);
+		System.out.println("ì‚¬ìš©ìê°€ ë³´ë‚´ëŠ” ê°’ : "+ pt);
+		System.out.println("ì‚¬ìš©ìê°€ ë³´ë‚´ëŠ” name : "+ name);
 		
-		//A´Â ¹®Á¦À¯Çü ÄÃ·³
-		//pt´Â ?Á¡¼öÀÔ´Ï´Ù. 
-		//nameÀº »ç¿ëÀÚ..³Ü ±×°ÔÀÖ¾î¾ß Á¡¼ö ÀÔ·Â°¡´ÉÇØ¼­¸¸µé¾ú¾î¿ä
+		//AëŠ” ë¬¸ì œìœ í˜• ì»¬ëŸ¼
+		//ptëŠ” ?ì ìˆ˜ì…ë‹ˆë‹¤. 
+		//nameì€ ì‚¬ìš©ì..ë„µ ê·¸ê²Œìˆì–´ì•¼ ì ìˆ˜ ì…ë ¥ê°€ëŠ¥í•´ì„œë§Œë“¤ì—ˆì–´ìš”
 		
 		
 		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,9 +46,9 @@ public class GameCon extends HttpServlet {
 			Connection conn = DriverManager.getConnection(url, dbid, dbpw);
 			
 			if(conn!=null) {
-				System.out.println("¿¬°á¼º°ø");
+				System.out.println("ì—°ê²°ì„±ê³µ");
 			}else {
-				System.out.println("¿¬°á½ÇÆĞ");
+				System.out.println("ì—°ê²°ì‹¤íŒ¨");
 			}
 			//"update ggame set Q1=? where name=?;"
 			//"update web_member set pw=?,tel=?,address=? where email=?"
@@ -72,9 +72,9 @@ public class GameCon extends HttpServlet {
 		
 		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		response.setContentType("text/html;charset=euc-kr");
-		//ÀÀ´äÇÏ´Â ÆäÀÌÁö¸¦ ¸¸µé¾îÁÖ´Â ±â´É
+		//ì‘ë‹µí•˜ëŠ” í˜ì´ì§€ë¥¼ ë§Œë“¤ì–´ì£¼ëŠ” ê¸°ëŠ¥
 		PrintWriter out = response.getWriter();
-		//ÀÀ´äÇÏ´Â ÆäÀÌÁö¿¡ ÄÚµå¸¦ ÀÔ·ÂÇÒ ¼ö ÀÖ´Â ±â´É
+		//ì‘ë‹µí•˜ëŠ” í˜ì´ì§€ì— ì½”ë“œë¥¼ ì…ë ¥í•  ìˆ˜ ìˆëŠ” ê¸°ëŠ¥
 		out.print("success");
 	}
 
