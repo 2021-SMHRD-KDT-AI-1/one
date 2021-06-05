@@ -27,9 +27,9 @@ public class NameCon extends HttpServlet {
 			Connection conn = DriverManager.getConnection(url, dbid, dbpw);
 			
 			if(conn!=null) {
-				System.out.println("¿¬°á¼º°ø");
+				System.out.println("ì—°ê²°ì„±ê³µ");
 			}else {
-				System.out.println("¿¬°á½ÇÆĞ");
+				System.out.println("ì—°ê²°ì‹¤íŒ¨");
 			}
 			//insert into ggame (name) values ('?')
 			//insert into ggame values ('?')
@@ -43,8 +43,8 @@ public class NameCon extends HttpServlet {
 			int cnt = psmt.executeUpdate();
 			
 			if(cnt>0) {
-				// '/' : ÇØ´ç°æ·Î ¾Æ·¡¿¡ Á¢±Ù
-				// '?' : Äõ¸®½ºÆ®¸µ
+				// '/' : í•´ë‹¹ê²½ë¡œ ì•„ë˜ì— ì ‘ê·¼
+				// '?' : ì¿¼ë¦¬ìŠ¤íŠ¸ë§
 				name = URLEncoder.encode(name,"utf-8");
 				response.sendRedirect("QuestionGame.jsp?name="+name);
 				
