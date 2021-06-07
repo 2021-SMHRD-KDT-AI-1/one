@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<style>
+    .kakao{
+        background-color: rgb(255, 204, 0);
+        color: white;
+        cursor: pointer;
+        font-size: 21px;
+        font-weight: 500;
+        border: 0px;
+        height: 60px;
+        width: 200px;
+        border-radius: 4px;
+        transition: all 0.2s;
+        text-align : center;
+        vertical-align: center;
+    }
+</style>
+<body>
+
+    <a id="kakao-link-btn" href="javascript:sendLink()">
+        <div class="kakao">
+        <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_small.png"/>
+        결과공유하기 
+        </div>
+    </a>
+
+<script type="text/javascript">
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('25e695ae770b9b278d0b597ba74a9019');
+    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createDefaultButton({
+      container: '#kakao-link-btn',
+      objectType: 'feed',
+      content: {
+        title: document.title,
+        description: '취미 공유',
+        imageUrl: document.images[0].src,
+        link: {
+          webUrl: document.location.href,
+          mobileWebUrl: document.location.href
+        }
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845
+      },
+      buttons: [
+        {
+          title: 'Open!',
+          link: {
+            mobileWebUrl: document.location.href,
+            webUrl: document.location.href
+          }
+        }  
+      ]
+    });
+  //]]>
+</script>
+</body>
+</html>

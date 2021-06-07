@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<style>
+    body {
+        background-color: #fffcf4;
+    }
+
+    .a::after {
+        width: 100%;
+        height: 100%;
+
+        content: "";
+        background: url("pro_image/total.png");
+        background-repeat: repeat;
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    #table_main {
+        width: 500px;
+        height: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        background-color: transparent;
+        font-family: 빙그레체;
+    }
+    #table_review{
+        width: 500px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        background-color: transparent;
+        font-family: 빙그레체;
+    }
+    textarea{ 
+        width:99%;
+        height: 97%;
+        }
+    #review {
+        width: 300px;
+        height: 50px;
+        font-family: 빙그레체;
+        font-size: 20px;
+        border-radius: 2em;
+        margin-left: 700px;
+
+        text-align: center;
+
+    }
+
+    #btn {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #btn button:hover {
+        color: whitesmoke;
+        background-color: grey;
+
+    }
+    #btn_review{
+        width: 200px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 1em;
+        font-size: 20px;
+        font-family: 빙그레체;
+    }
+    #btn_submit{
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 1em;
+        font-size: 20px;
+    }
+
+    #btn_back{
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 1em;
+        font-size: 20px;
+    }
+    #line {
+        width: 100%;
+        height: 10px;
+        background-color: greenyellow;
+    }
+    #result{
+        display: block;
+    }
+    #review{
+        display: none;
+    }
+    .kakao {
+        background-color: #FAE100;
+        cursor: pointer;
+        border-radius: 1em;
+        transition: all 0.2s;
+        text-align: center;
+        vertical-align: center;
+        font-family: 빙그레체;
+        font-size: 25px;
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        margin-right: 20px;
+    }
+
+</style>
+<script>
+    function write_review(){
+        document.getElementById("result").style.display = "none";
+        document.getElementById("review").style.display = "block";
+    }
+    function btn_back(){
+        document.getElementById("result").style.display = "block";
+        document.getElementById("review").style.display = "none";
+    }
+</script>
+<body class="a">
+    <form action="FeedbackCon">
+        <fieldset style="border:1px solid transparent">
+            <legend align="center">
+                <div id="title">
+                    <h2>당신에게는</h2>
+                    <h2>이 취미를 추천합니다!</h2>
+                </div>
+            </legend>
+            <div id="line"></div>
+            <div id="result">
+                <div>
+                    <table border="1px" id="table_main">
+                        <tr>
+                            <td colspan="2" align="center"><img src="pro_image/total.png" width="400px" height="400px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                분류 : 오늘뭐하지??<br>
+                                이름 : 내일은 뭐하지??<br>
+                                기회비용 : 주식화이팅<br>
+                                특이사항 : 오저무??<br>
+                            </td>
+                            <td>여기에도 취미 설명</td>
+                        </tr>
+                    </table>
+
+                </div>
+                
+                <div id="btn">
+                    <span class="kakao">
+                        <a id="kakao-link-btn" href="javascript:sendLink()">
+                            <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_small.png" /></a>
+                        결과공유하기</span>
+                    <button type="button" id="btn_review" onclick="write_review()">취미하러 가볼까?"</button>
+                </div>
+            </div>
+            <div id="review">
+                <table id="table_review" border= "1px">
+                    <tr height = "30px">
+                        <td>갈때 가더라도 리뷰 한줄은 괜찮자나??</td>
+                    </tr>
+                    <tr>
+                        <td><textarea placeholder="이 취미에 대한 생각을 적어주세요!" id="review_content" name="review_content""></textarea></td>
+                    </tr>
+                    <tr>
+                        <td height="50px">
+                            <button id="btn_back" onclick="btn_back();">돌아가기</button>
+                            <button type="submit" id="btn_submit" >제출하기</button>
+                            
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </fieldset>
+        <script type="text/javascript">
+            //<![CDATA[
+            // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+            Kakao.init('25e695ae770b9b278d0b597ba74a9019');
+            // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+            Kakao.Link.createDefaultButton({
+                container: '#kakao-link-btn',
+                objectType: 'feed',
+                content: {
+                    title: '나에게 맞는 비대면 취미는??',
+                    description: '취미 공유하기',
+                    imageUrl: document.images[0].src,
+                    link: {
+                        webUrl: document.location.href,
+                        mobileWebUrl: document.location.href
+                    }
+                },
+                social: {
+                    likeCount: 286,
+                    commentCount: 45,
+                    sharedCount: 845
+                },
+                buttons: [
+                    {
+                        title: '나도하러갈래!!',
+                        link: {
+                            mobileWebUrl: document.location.href,
+                            webUrl: document.location.href
+                        }
+                    }
+                ]
+            });
+      //]]>
+        </script>
+        
+        </form>
+</body>
+
+</html>
